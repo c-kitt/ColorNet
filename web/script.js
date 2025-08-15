@@ -48,7 +48,7 @@ async function query(rgb) {
     const p = data["P (White)"];
     swatch.style.color = (label === 'white') ? 'white' : 'black';
     swatch.textContent = `${label.toUpperCase()} TEXT`;
-    info.textContent = `RGB(${r},${g},${b}), HEX ${rgbToHex(r,g,b)} • P(white)=${p}`;
+    info.textContent = `RGB(${r},${g},${b}), HEX ${rgbToHex(r,g,b)}`;
   } catch (e) {
     info.textContent = 'Error contacting server';
     console.error('Predict failed:', e);
