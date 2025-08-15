@@ -95,3 +95,11 @@ h1 {
 #b {
   accent-color: #0000ff;
 }
+
+.subtitle {
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
