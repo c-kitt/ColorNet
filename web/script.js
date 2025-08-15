@@ -8,6 +8,8 @@ const rNum   = document.getElementById('r_num');
 const gNum   = document.getElementById('g_num');
 const bNum   = document.getElementById('b_num');
 
+const API_BASE = 'https://colornet-production.up.railway.app';
+
 function clamp255(n){ n = Number(n); return Math.max(0, Math.min(255, n|0)); }
 
 function rgbToHex(r,g,b){
@@ -35,20 +37,21 @@ async function query(rgb) {
   info.textContent = 'Checking…';
 
   try {
-    const res = await fetch('/predict', {
+    const res = await fetch(`${API_BASE}/predict`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ r, g, b })
     });
+    if (!res.ok) throw new Error(`HTTP ${res.status}: ${await res.text()}`);
     const data = await res.json();
     const label = data["Prediction"];
     const p = data["P (White)"];
     swatch.style.color = (label === 'white') ? 'white' : 'black';
     swatch.textContent = `${label.toUpperCase()} TEXT`;
-    info.textContent = `RGB(${r},${g},${b}), HEX ${rgbToHex(r,g,b)}`;
+    info.textContent = `RGB(${r},${g},${b}), HEX ${rgbToHex(r,g,b)} • P(white)=${p}`;
   } catch (e) {
     info.textContent = 'Error contacting server';
-    console.error(e);
+    console.error('Predict failed:', e);
   }
 }
 
