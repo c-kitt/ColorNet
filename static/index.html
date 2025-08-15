@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>White or Black Text?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>White or Black Text?</h1>
+
+  <section class="panel">
+    <div class="rgb">
+      <div class="row">
+        <label for="r">R</label>
+        <input type="range" id="r" min="0" max="255" value="68">
+        <input type="number" id="r_num" min="0" max="255" value="68">
+      </div>
+      <div class="row">
+        <label for="g">G</label>
+        <input type="range" id="g" min="0" max="255" value="170">
+        <input type="number" id="g_num" min="0" max="255" value="170">
+      </div>
+      <div class="row">
+        <label for="b">B</label>
+        <input type="range" id="b" min="0" max="255" value="238">
+        <input type="number" id="b_num" min="0" max="255" value="238">
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="out" id="info">—</div>
+    <div class="swatch" id="swatch">Preview</div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
