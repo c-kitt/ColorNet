@@ -6,4 +6,4 @@ It uses RGB values as input (three nodes), runs them through a hidden layer (ReL
 
 Developed with Python (Flask, NumPy) + HTML/JS frontend. Deployed via. Railway/Vercel.
 
-Check it out, [here](https://color-net.vercel.app/)
+[Check it out here!](https://color-net.vercel.app/)
